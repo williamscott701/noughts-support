@@ -1,0 +1,60 @@
+/* A page of squared exercise paper with a red margin. */
+:root {
+  --paper: #faf7ee;
+  --squares: rgba(185, 205, 224, 0.55);
+  --margin: rgba(217, 83, 79, 0.75);
+  --ink: #1d2b4f;
+  --pencil: #5a5d66;
+  --red: #c2362f;
+  --blue: #1f3b8c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1e222d;
+    --squares: rgba(58, 74, 96, 0.55);
+    --margin: rgba(180, 84, 79, 0.7);
+    --ink: #e4e8f2;
+    --pencil: #a3a8b5;
+    --red: #f08a80;
+    --blue: #8fa9f0;
+  }
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font: 18px/1.6 "New York", "Iowan Old Style", Georgia, serif;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, transparent 47px, var(--margin) 47px, var(--margin) 49px, transparent 49px),
+    linear-gradient(var(--squares) 1px, transparent 1px),
+    linear-gradient(90deg, var(--squares) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+}
+main { max-width: 720px; padding: 40px 20px 60px 72px; }
+h1, h2, .hand { font-family: "Noteworthy", "Bradley Hand", "Segoe Print", cursive; font-weight: 700; }
+h1 { font-size: 40px; line-height: 1.2; margin: 0 0 4px; color: var(--blue); }
+h2 { font-size: 26px; margin: 34px 0 6px; }
+.label { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pencil); font-weight: 600; }
+.cover {
+  display: inline-block; padding: 14px 22px; border: 1.6px solid var(--ink);
+  border-radius: 14px; outline: 0.8px solid color-mix(in srgb, var(--ink) 40%, transparent); outline-offset: -6px;
+  margin-bottom: 28px;
+}
+p, li { max-width: 62ch; }
+ul { padding-left: 1.1em; }
+li::marker { content: "✓  "; color: var(--red); }
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.num { color: var(--red); font-family: "Noteworthy", cursive; font-weight: 700; margin-right: 6px; }
+footer { margin-top: 48px; color: var(--pencil); font-size: 15px; }
+nav a { margin-right: 18px; }
+@media (max-width: 480px) {
+  body { font-size: 17px; background-image:
+    linear-gradient(to right, transparent 31px, var(--margin) 31px, var(--margin) 33px, transparent 33px),
+    linear-gradient(var(--squares) 1px, transparent 1px),
+    linear-gradient(90deg, var(--squares) 1px, transparent 1px); }
+  main { padding: 28px 16px 48px 48px; }
+  h1 { font-size: 32px; }
+}
